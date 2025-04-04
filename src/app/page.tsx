@@ -8,6 +8,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const apiToken = process.env.NEXT_PUBLIC_FOOTBALL_API_TOKEN;
     const fetchData = async () => {
       try {
         const fetchResponse = await fetch(
@@ -15,7 +16,7 @@ export default function Home() {
           {
             method: "GET",
             headers: {
-              "X-Auth-Token": "c3ff783183874ae782e67445fadf68c9",
+              "X-Auth-Token": apiToken,
             },
             mode: "no-cors",
           }
