@@ -109,6 +109,26 @@ This project interacts with the free public REST API provided by [football-data.
 
 - Competition Top Scorers: – to retrieve data on the Premier League's leading goal scorers.
 
+### Environment Variables
+
+> **Note:** For the purpose of evaluating this project, the `.env` file has been intentionally included and contains a personal API token for the public football-data.org API.
+
+Please do not use this token for any purpose outside of reviewing or testing this project.
+It will be removed from the public repository after the evaluation period.
+
+### Setting Up Your Own Environment
+
+If you're running this project after the evaluation:
+
+1. Create a `.env.local` file at the root of the project.
+2. Add your own API token like this:
+
+```env
+NEXT_PUBLIC_FOOTBALL_API_TOKEN=your_personal_token_here
+```
+
+You can obtain a free token by signing up at [football-data.org](https://www.football-data.org/).
+
 ## Learn More
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

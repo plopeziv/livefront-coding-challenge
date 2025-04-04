@@ -1,6 +1,32 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [standingsData, setStandingsData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchResponse = await fetch("/api/standings");
+
+        const jsonData = await fetchResponse.json();
+        console.log(jsonData);
+        setStandingsData(jsonData);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+
+    console.log(standingsData);
+    console.log(loading);
+  }, []);
   return (
     <div className="h-screen flex justify-center items-center bg-[url('/background_images/soccer_pitch.jpg')] bg-cover bg-center">
       <div className='w-[28rem] h-[20rem] mx-3 flex justify-center bg-gray-800 p-8 rounded-lg border border-gray-600 shadow-[inset_4px_4px_8px_rgba(255,255,255,0.1),_inset_-4px_-4px_8px_rgba(0,0,0,0.5)]'>
