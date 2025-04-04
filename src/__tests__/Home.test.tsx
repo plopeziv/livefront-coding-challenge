@@ -1,10 +1,11 @@
 import { screen, render } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
+import mockData from "../../public/scratch/season_standings.json";
 
 import Home from "@/app/page";
 
 beforeEach(() => {
-  global.fetch = jest.fn(() => Promise.resolve({}));
+  global.fetch = jest.fn(() => Promise.resolve(mockData));
 });
 
 afterEach(() => {
@@ -13,9 +14,12 @@ afterEach(() => {
 
 expect.extend(toHaveNoViolations);
 describe("<Home />", () => {
-  test("It should render Home component", () => {
+  test("It should render a table", async () => {
     render(<Home />);
-    expect(screen.getByRole("main")).toBeInTheDocument();
+
+    await screen.findAllByRole("table");
+
+    expect(screen.getByRole("table")).toBeInTheDocument();
   });
 
   test("It should be accessible", async () => {
