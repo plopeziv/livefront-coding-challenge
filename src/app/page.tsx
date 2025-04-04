@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 import StandingsTable from "./components/StandingsTable";
-
-ModuleRegistry.registerModules([AllCommunityModule]);
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
