@@ -34,7 +34,6 @@ export default function Home() {
             ...item,
             name: item.team.name,
           }));
-          console.log(extractedData);
           setRowData(extractedData);
         }
       } catch (error) {

@@ -1,7 +1,6 @@
 export default function StandingsTable(props) {
   const headers = props.headers;
   const rowData = props.rowData;
-  console.log(headers);
 
   return (
     <table className='text-center'>
