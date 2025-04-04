@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { json } from "node:stream/consumers";
 import { useEffect, useState } from "react";
 
 export default function Home() {

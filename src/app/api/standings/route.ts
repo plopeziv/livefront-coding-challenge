@@ -1,6 +1,4 @@
-import { NextRequest } from "next/server";
-
-export async function GET(request: NextRequest) {
+export async function GET() {
   const response = await fetch(
     "http://api.football-data.org/v4/competitions/PL/standings",
     {
