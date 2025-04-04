@@ -4,12 +4,10 @@ export async function GET(request: NextRequest) {
   const response = await fetch(
     "http://api.football-data.org/v4/competitions/PL/standings",
     {
-      // Optional: forward some headers, add auth tokens, etc.
-      headers: { "X-Auth-Token": "c3ff783183874ae782e67445fadf68c9" },
+      headers: { "X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_TOKEN },
     }
   );
 
-  // Transform or forward the response
   const data = await response.json();
   const transformed = { ...data, source: "proxied-through-nextjs" };
 
