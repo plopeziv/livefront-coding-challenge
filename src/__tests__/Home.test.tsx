@@ -3,8 +3,15 @@ import { axe, toHaveNoViolations } from "jest-axe";
 
 import Home from "@/app/page";
 
-expect.extend(toHaveNoViolations);
+beforeEach(() => {
+  global.fetch = jest.fn(() => Promise.resolve({}));
+});
 
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
+expect.extend(toHaveNoViolations);
 describe("<Home />", () => {
   test("It should render Home component", () => {
     render(<Home />);
