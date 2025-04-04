@@ -113,10 +113,8 @@ This project interacts with the free public REST API provided by [football-data.
 
 > **Note:** For the purpose of evaluating this project, the `.env` file has been intentionally included and contains a personal API token for the public football-data.org API.
 
-**Please do not use this token for any purpose outside of reviewing or testing this project.**  
+Please do not use this token for any purpose outside of reviewing or testing this project.
 It will be removed from the public repository after the evaluation period.
-
----
 
 ### Setting Up Your Own Environment
 

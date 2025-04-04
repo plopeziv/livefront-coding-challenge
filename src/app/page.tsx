@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { json } from "node:stream/consumers";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -8,18 +9,10 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const apiToken = process.env.NEXT_PUBLIC_FOOTBALL_API_TOKEN;
     const fetchData = async () => {
       try {
         const fetchResponse = await fetch(
-          "http://api.football-data.org/v4/competitions/PL/standings",
-          {
-            method: "GET",
-            headers: {
-              "X-Auth-Token": apiToken,
-            },
-            mode: "no-cors",
-          }
+          "/api/proxy/competitions/PL/standings"
         );
 
         const jsonData = await fetchResponse.json();
