@@ -1,14 +1,17 @@
 export default function StandingsTable(props) {
   const headers = props.headers;
   const rowData = props.rowData;
+  console.log(headers);
 
   return (
     <table className='text-center'>
       <thead className='bg-[#2b2d42]'>
-        <tr className=''>
+        <tr>
           {headers.map((header) => (
             // eslint-disable-next-line react/jsx-key
-            <th className='mx-3 min-w-[90px]'>{header.field}</th>
+            <th key={header.field} className='mx-3 min-w-[90px]'>
+              {header.field}
+            </th>
           ))}
         </tr>
       </thead>

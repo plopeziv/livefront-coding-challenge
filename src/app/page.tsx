@@ -7,22 +7,8 @@ import StandingsTable from "./components/StandingsTable";
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 export default function Home() {
-  const [standingsData, setStandingsData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [rowData, setRowData] = useState([
-    {
-      position: 1,
-      team: { name: "Real Madrid" },
-      playedGames: 20,
-      won: 10,
-      draw: 4,
-      lost: 6,
-      goalsFor: 12,
-      goalsAgainst: 2,
-      goalDifference: 10,
-      points: 34,
-    },
-  ]);
+  const [rowData, setRowData] = useState([]);
 
   const colNames = [
     { field: "Position" },
@@ -51,7 +37,6 @@ export default function Home() {
           console.log(extractedData);
           setRowData(extractedData);
         }
-        setStandingsData(jsonData);
       } catch (error) {
         console.error("Error fetching data: ", error);
       } finally {
@@ -62,8 +47,10 @@ export default function Home() {
     fetchData();
   }, []);
   return (
-    <div className="h-screen flex justify-center items-center bg-[url('/background_images/soccer_pitch.jpg')] bg-cover bg-center">
-      <StandingsTable headers={colNames} rowData={rowData} />
-    </div>
+    <main>
+      <div className="h-screen flex justify-center items-center bg-[url('/background_images/soccer_pitch.jpg')] bg-cover bg-center">
+        {!loading && <StandingsTable headers={colNames} rowData={rowData} />}
+      </div>
+    </main>
   );
 }
