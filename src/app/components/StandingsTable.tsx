@@ -1,6 +1,21 @@
+import { useRouter } from "next/navigation";
+
 export default function StandingsTable(props) {
   const headers = props.headers;
   const rowData = props.rowData;
+
+  const router = useRouter();
+
+  const handleClick = (teamName: string) => {
+    console.log(teamName);
+    console.log(slugify(teamName));
+
+    router.push(`/scoring_leaders/${slugify(teamName)}`);
+  };
+
+  const slugify = (text: string) => {
+    return text.replace(/\s+/g, "_");
+  };
 
   return (
     <table className='text-center'>
@@ -18,11 +33,12 @@ export default function StandingsTable(props) {
         {rowData.map((item, index) => (
           <tr
             key={index}
-            className={
+            onClick={() => handleClick(item.team.name)}
+            className={`${
               index % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
                 : "bg-[rgba(224, 232, 235, 0.88)]"
-            }
+            } hover:bg-[rgba(180,200,220,0.88)] cursor-pointer`}
           >
             <td>{item.position}</td>
             <td>{item.team.name}</td>

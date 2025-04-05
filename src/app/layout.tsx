@@ -27,7 +27,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="bg-[url('/background_images/soccer_pitch.jpg')] bg-cover bg-center">
+          <main>
+            <div className='h-screen flex flex-col justify-center items-center -translate-y-3'>
+              {children}
+            </div>
+          </main>
+        </div>
       </body>
     </html>
   );

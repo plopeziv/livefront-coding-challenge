@@ -43,10 +43,11 @@ export default function Home() {
     fetchData();
   }, []);
   return (
-    <main>
-      <div className="h-screen flex justify-center items-center bg-[url('/background_images/soccer_pitch.jpg')] bg-cover bg-center">
-        {!loading && <StandingsTable headers={colNames} rowData={rowData} />}
-      </div>
-    </main>
+    <div className='h-screen flex flex-col justify-center items-center'>
+      <h1 className='text-5xl mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]'>
+        Premier League Table
+      </h1>
+      {!loading && <StandingsTable headers={colNames} rowData={rowData} />}
+    </div>
   );
 }
