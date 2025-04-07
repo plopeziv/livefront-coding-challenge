@@ -12,6 +12,12 @@ export default function StandingsTable(props) {
     router.push(`/scoring_leaders/${slugify(teamName)}`);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent, teamName: string) => {
+    if (event.key === "Enter") {
+      handleClick(teamName);
+    }
+  };
+
   const slugify = (text: string) => {
     return text.replace(/\s+/g, "_");
   };
@@ -31,7 +37,9 @@ export default function StandingsTable(props) {
         {rowData.map((item, index) => (
           <tr
             key={index}
+            tabIndex={index + 1}
             onClick={() => handleClick(item.team.name)}
+            onKeyDown={(e) => handleKeyDown(e, item.team.name)}
             className={`${
               index % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
