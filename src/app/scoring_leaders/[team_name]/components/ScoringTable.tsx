@@ -23,7 +23,7 @@ export default function ScoringTable(props) {
               index % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
                 : "bg-[rgba(224, 232, 235, 0.88)]"
-            } hover:bg-[rgba(180,200,220,0.88)] cursor-pointer h-[30px]`}
+            } hover:bg-[rgba(180,200,220,0.88)] h-[30px] cursor-default`}
           >
             <td>{item.name}</td>
             <td>{item.dateOfBirth}</td>
@@ -42,7 +42,7 @@ export default function ScoringTable(props) {
               idx % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
                 : "bg-[rgba(224, 232, 235, 0.88)]"
-            } hover:bg-[rgba(180,200,220,0.88)] cursor-pointer`}
+            } hover:bg-[rgba(180,200,220,0.88)]`}
           >
             <td colSpan={7} className='h-[30px]'></td>
           </tr>

@@ -1,12 +1,15 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ScoringTable from "./components/ScoringTable";
 
 export default function ScoringLeaders() {
   const { team_name } = useParams();
   const [rowData, setRowData] = useState([]);
+
+  const router = useRouter();
 
   const colNames = [
     { field: "Name" },
@@ -79,6 +82,14 @@ export default function ScoringLeaders() {
       <h2 className='mb-5'>In Top 100</h2>
       <div className='w-[1075px] flex justify-center'>
         <ScoringTable headers={colNames} rowData={rowData} />
+      </div>
+      <div className='mt-4'>
+        <button
+          onClick={() => router.push("/")}
+          className='px-6 py-3 bg-[#2b2d42] text-white text-3xl rounded-lg hover:bg-gray-800'
+        >
+          Back to Home
+        </button>
       </div>
     </div>
   );
