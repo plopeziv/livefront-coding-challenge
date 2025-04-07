@@ -24,10 +24,15 @@ export default function StandingsTable(props) {
 
   return (
     <table className='text-center'>
+      <caption id='table-caption' className='sr-only'>
+        Premier League Table displaying team positions, played games, wins,
+        draws, losses, goals, and points.
+      </caption>
+
       <thead className='bg-[#2b2d42]'>
         <tr>
           {headers.map((header) => (
-            <th key={header.field} className='mx-3 min-w-[90px]'>
+            <th key={header.field} className='mx-3 min-w-[90px]' scope='col'>
               {header.field}
             </th>
           ))}
@@ -37,7 +42,9 @@ export default function StandingsTable(props) {
         {rowData.map((item, index) => (
           <tr
             key={index}
-            tabIndex={index + 1}
+            tabIndex={0}
+            role='row'
+            aria-label={`Row ${item.position}: ${item.team.name} with ${item.points} points`}
             onClick={() => handleClick(item.team.name)}
             onKeyDown={(e) => handleKeyDown(e, item.team.name)}
             className={`${

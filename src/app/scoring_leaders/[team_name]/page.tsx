@@ -87,6 +87,7 @@ export default function ScoringLeaders() {
         <button
           onClick={() => router.push("/")}
           className='px-6 py-3 bg-[#2b2d42] text-white text-3xl rounded-lg hover:bg-gray-800'
+          aria-label='Go back to the homepage'
         >
           Back to Home
         </button>
