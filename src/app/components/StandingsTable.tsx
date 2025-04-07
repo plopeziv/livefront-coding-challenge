@@ -69,7 +69,6 @@ export default function StandingsTable(props) {
         {Array.from({ length: emptyRows }).map((_, idx) => (
           <tr
             key={`empty-${idx}`}
-            aria-hidden='true'
             className={`${
               idx % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
