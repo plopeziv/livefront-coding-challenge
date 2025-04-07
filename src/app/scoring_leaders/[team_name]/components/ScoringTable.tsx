@@ -19,6 +19,7 @@ export default function ScoringTable(props) {
         {rowData.map((item, index) => (
           <tr
             key={index}
+            tabIndex={index + 1}
             className={`${
               index % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
