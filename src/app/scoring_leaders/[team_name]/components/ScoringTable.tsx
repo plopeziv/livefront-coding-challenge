@@ -1,18 +1,6 @@
-import { useRouter } from "next/navigation";
-
 export default function StandingsTable(props) {
   const headers = props.headers;
   const rowData = props.rowData;
-
-  const router = useRouter();
-
-  const handleClick = (teamName: string) => {
-    router.push(`/scoring_leaders/${slugify(teamName)}`);
-  };
-
-  const slugify = (text: string) => {
-    return text.replace(/\s+/g, "_");
-  };
 
   return (
     <table className='text-center'>
@@ -29,7 +17,6 @@ export default function StandingsTable(props) {
         {rowData.map((item, index) => (
           <tr
             key={index}
-            onClick={() => handleClick(item.team.name)}
             className={`${
               index % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"

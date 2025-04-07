@@ -4,8 +4,34 @@ import mockData from "../../public/scratch/season_standings.json";
 
 import Home from "@/app/page";
 
+jest.mock("next/navigation", () => {
+  return {
+    useRouter: () => ({
+      push: jest.fn(),
+      replace: jest.fn(),
+      refresh: jest.fn(),
+      back: jest.fn(),
+      forward: jest.fn(),
+      prefetch: jest.fn(),
+    }),
+    usePathname: () => "/",
+    useSearchParams: () => ({
+      get: jest.fn(),
+    }),
+  };
+});
+
 beforeEach(() => {
-  global.fetch = jest.fn(() => Promise.resolve(mockData));
+  global.fetch = jest.fn(() =>
+    Promise.resolve({
+      ok: true,
+      status: 200,
+      json: () =>
+        Promise.resolve({
+          data: mockData,
+        }),
+    })
+  ) as jest.Mock;
 });
 
 afterEach(() => {
