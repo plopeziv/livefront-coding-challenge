@@ -1,9 +1,11 @@
-export default function StandingsTable(props) {
+export default function ScoringTable(props) {
   const headers = props.headers;
   const rowData = props.rowData;
 
+  const emptyRows = 15 - rowData.length;
+
   return (
-    <table className='text-center'>
+    <table className='text-center text-base'>
       <thead className='bg-[#2b2d42]'>
         <tr>
           {headers.map((header) => (
@@ -21,18 +23,28 @@ export default function StandingsTable(props) {
               index % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
                 : "bg-[rgba(224, 232, 235, 0.88)]"
+            } hover:bg-[rgba(180,200,220,0.88)] cursor-pointer h-[30px]`}
+          >
+            <td>{item.name}</td>
+            <td>{item.dateOfBirth}</td>
+            <td>{item.nationality}</td>
+            <td>{item.position}</td>
+            <td>{item.goals}</td>
+            <td>{item.assists}</td>
+            <td>{item.matches}</td>
+          </tr>
+        ))}
+
+        {Array.from({ length: emptyRows }).map((_, idx) => (
+          <tr
+            key={`empty-${idx}`}
+            className={`${
+              idx % 2 === 0
+                ? "bg-[rgba(141,153,174,0.88)]"
+                : "bg-[rgba(224, 232, 235, 0.88)]"
             } hover:bg-[rgba(180,200,220,0.88)] cursor-pointer`}
           >
-            <td>{item.position}</td>
-            <td>{item.team.name}</td>
-            <td>{item.playedGames}</td>
-            <td>{item.won}</td>
-            <td>{item.draw}</td>
-            <td>{item.lost}</td>
-            <td>{item.goalsFor}</td>
-            <td>{item.goalsAgainst}</td>
-            <td>{item.goalDifference}</td>
-            <td>{item.points}</td>
+            <td colSpan={7} className='h-[30px]'></td>
           </tr>
         ))}
       </tbody>
