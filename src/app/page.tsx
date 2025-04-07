@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import StandingsTable from "./components/StandingsTable";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
   const [rowData, setRowData] = useState([]);
 
   const colNames = [
@@ -35,8 +34,6 @@ export default function Home() {
         }
       } catch (error) {
         console.error("Error fetching data: ", error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -47,7 +44,7 @@ export default function Home() {
       <h1 className='text-5xl mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]'>
         Premier League Table
       </h1>
-      {!loading && <StandingsTable headers={colNames} rowData={rowData} />}
+      <StandingsTable headers={colNames} rowData={rowData} />
     </div>
   );
 }
