@@ -30,7 +30,7 @@ export default function ScoringLeaders() {
       singleSlug = slug;
     }
 
-    singleSlug = singleSlug.replace(/_/g, " ");
+    singleSlug = singleSlug.replace(/_/g, " ").replace(/%26/g, "&");
 
     return singleSlug;
   };
