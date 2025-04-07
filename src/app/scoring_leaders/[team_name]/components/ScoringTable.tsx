@@ -6,10 +6,15 @@ export default function ScoringTable(props) {
 
   return (
     <table className='text-center text-base'>
+      <caption id='scoring-table-caption' className='sr-only'>
+        Scoring table displaying player information, including name, date of
+        birth, nationality, position, goals, assists, and matches played.
+      </caption>
+
       <thead className='bg-[#2b2d42]'>
         <tr>
           {headers.map((header) => (
-            <th key={header.field} className='mx-3 min-w-[90px]'>
+            <th key={header.field} className='mx-3 min-w-[90px]' scope='col'>
               {header.field}
             </th>
           ))}
@@ -19,7 +24,11 @@ export default function ScoringTable(props) {
         {rowData.map((item, index) => (
           <tr
             key={index}
-            tabIndex={index + 1}
+            tabIndex={0}
+            role='row'
+            aria-label={`Row ${index + 1}: ${item.name}, ${
+              item.position
+            } with ${item.goals} goals`}
             className={`${
               index % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
@@ -39,6 +48,7 @@ export default function ScoringTable(props) {
         {Array.from({ length: emptyRows }).map((_, idx) => (
           <tr
             key={`empty-${idx}`}
+            aria-hidden='true'
             className={`${
               idx % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
