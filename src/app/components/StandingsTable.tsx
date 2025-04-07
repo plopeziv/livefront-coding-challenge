@@ -7,9 +7,6 @@ export default function StandingsTable(props) {
   const router = useRouter();
 
   const handleClick = (teamName: string) => {
-    console.log(teamName);
-    console.log(slugify(teamName));
-
     router.push(`/scoring_leaders/${slugify(teamName)}`);
   };
 
@@ -22,7 +19,6 @@ export default function StandingsTable(props) {
       <thead className='bg-[#2b2d42]'>
         <tr>
           {headers.map((header) => (
-            // eslint-disable-next-line react/jsx-key
             <th key={header.field} className='mx-3 min-w-[90px]'>
               {header.field}
             </th>

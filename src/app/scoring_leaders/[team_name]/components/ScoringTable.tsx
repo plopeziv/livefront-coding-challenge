@@ -7,7 +7,6 @@ export default function StandingsTable(props) {
       <thead className='bg-[#2b2d42]'>
         <tr>
           {headers.map((header) => (
-            // eslint-disable-next-line react/jsx-key
             <th key={header.field} className='mx-3 min-w-[90px]'>
               {header.field}
             </th>
@@ -18,7 +17,6 @@ export default function StandingsTable(props) {
         {rowData.map((item, index) => (
           <tr
             key={index}
-            onClick={() => handleClick(item.team.name)}
             className={`${
               index % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
