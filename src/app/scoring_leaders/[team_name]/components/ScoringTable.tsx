@@ -6,25 +6,10 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { useState } from "react";
+import { ScoringPlayerDTO } from "../types/scoring-player.dto";
+import { SortingState } from "../../../types/table-sorting";
 
-type ScoringPlayer = {
-  assists: number;
-  goals: number;
-  dateOfBirth: string;
-  matches: number;
-  name: string;
-  nationality: string;
-  position: string;
-};
-
-type ColumnSort = {
-  id: string;
-  desc: boolean;
-};
-
-type SortingState = ColumnSort[];
-
-const columnHelper = createColumnHelper<ScoringPlayer>();
+const columnHelper = createColumnHelper<ScoringPlayerDTO>();
 
 const tableHeaders = [
   columnHelper.accessor("name", {
@@ -61,7 +46,7 @@ const tableHeaders = [
 ];
 
 export default function ScoringTable(props) {
-  const rowData: ScoringPlayer[] = props.rowData;
+  const rowData: ScoringPlayerDTO[] = props.rowData;
   const [sorting, setSorting] = useState<SortingState>([
     {
       id: "goals",
