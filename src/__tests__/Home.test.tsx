@@ -1,8 +1,8 @@
-import { screen, render } from "@testing-library/react";
+import { screen, render, waitFor } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 import mockData from "../../public/scratch/season_standings.json";
 
-import Home from "@/app/page";
+import Home from "../app/page";
 
 jest.mock("next/navigation", () => {
   return {
@@ -26,10 +26,7 @@ beforeEach(() => {
     Promise.resolve({
       ok: true,
       status: 200,
-      json: () =>
-        Promise.resolve({
-          data: mockData,
-        }),
+      json: () => Promise.resolve(mockData),
     })
   ) as jest.Mock;
 });
@@ -46,6 +43,14 @@ describe("<Home />", () => {
     await screen.findAllByRole("table");
 
     expect(screen.getByRole("table")).toBeInTheDocument();
+  });
+
+  test("It should fetch data on render", async () => {
+    render(<Home />);
+
+    await waitFor(() => {
+      expect(global.fetch).toHaveBeenCalledWith("/api/standings");
+    });
   });
 
   test("It should be accessible", async () => {

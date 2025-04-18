@@ -43,8 +43,6 @@ const tableHeaders = [
 
 export default function StandingsTable(props) {
   const router = useRouter();
-
-  const headers = props.headers;
   const rowData = props.rowData;
   const [sorting, setSorting] = useState<SortingState>([
     { id: "position", desc: true },
