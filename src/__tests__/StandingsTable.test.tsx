@@ -19,26 +19,28 @@ describe("<StandingsTable />", () => {
     });
   });
 
-  test("It renders teams in data", () => {
+  test("It renders teams in data", async () => {
     render(<StandingsTable rowData={mockData} />);
 
-    expect(screen.getByText("Liverpool FC")).toBeInTheDocument();
+    const liverpool = await screen.findByText("Liverpool FC");
+
+    expect(liverpool).toBeInTheDocument();
   });
 
-  test("Clicking on a row should navigate to the team scorers page", () => {
+  test("Clicking on a row should navigate to the team scorers page", async () => {
     render(<StandingsTable rowData={mockData} />);
 
-    const row = screen.getByRole("row", { name: /Liverpool FC/i });
+    const row = await screen.findByRole("row", { name: /Liverpool FC/i });
 
     fireEvent.click(row);
 
     expect(pushMock).toHaveBeenCalledWith("/scoring_leaders/Liverpool_FC");
   });
 
-  test("Row navigation should support accessibilty enter click events", () => {
+  test("Row navigation should support accessibilty enter click events", async () => {
     render(<StandingsTable rowData={mockData} />);
 
-    const row = screen.getByRole("row", { name: /Liverpool FC/i });
+    const row = await screen.findByRole("row", { name: /Liverpool FC/i });
 
     row.focus();
     fireEvent.keyDown(row, { key: "Enter" });
@@ -46,10 +48,10 @@ describe("<StandingsTable />", () => {
     expect(pushMock).toHaveBeenCalledWith("/scoring_leaders/Liverpool_FC");
   });
 
-  test("Row navigation should support accessibilty space bar click events", () => {
+  test("Row navigation should support accessibilty space bar click events", async () => {
     render(<StandingsTable rowData={mockData} />);
 
-    const row = screen.getByRole("row", { name: /Liverpool FC/i });
+    const row = await screen.findByRole("row", { name: /Liverpool FC/i });
 
     row.focus();
     fireEvent.keyDown(row, { key: " " });

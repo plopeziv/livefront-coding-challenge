@@ -40,9 +40,9 @@ describe("<Home />", () => {
   test("It should render a table", async () => {
     render(<Home />);
 
-    await screen.findAllByRole("table");
+    const renderedTable = await screen.findAllByRole("table");
 
-    expect(screen.getByRole("table")).toBeInTheDocument();
+    expect(renderedTable).toHaveLength(1);
   });
 
   test("It should fetch data on render", async () => {
