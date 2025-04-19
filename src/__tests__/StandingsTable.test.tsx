@@ -2,9 +2,10 @@ import { screen, render, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
 import "jest-axe/extend-expect";
 
-import mockData from "./data/sample-standings.json";
+import mockData from "./scratch_files/sample_standings.json";
 import StandingsTable from "../app/components/StandingsTable";
 import { useRouter } from "next/navigation";
+import userEvent from "@testing-library/user-event";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
@@ -12,11 +13,16 @@ jest.mock("next/navigation", () => ({
 
 describe("<StandingsTable />", () => {
   const pushMock = jest.fn();
+  const user = userEvent.setup();
 
   beforeEach(() => {
     (useRouter as jest.Mock).mockReturnValue({
       push: pushMock,
     });
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   test("It renders teams in data", async () => {
@@ -43,7 +49,7 @@ describe("<StandingsTable />", () => {
     const row = await screen.findByRole("row", { name: /Liverpool FC/i });
 
     row.focus();
-    fireEvent.keyDown(row, { key: "Enter" });
+    await user.keyboard("[Enter]");
 
     expect(pushMock).toHaveBeenCalledWith("/scoring_leaders/Liverpool_FC");
   });
@@ -54,7 +60,7 @@ describe("<StandingsTable />", () => {
     const row = await screen.findByRole("row", { name: /Liverpool FC/i });
 
     row.focus();
-    fireEvent.keyDown(row, { key: " " });
+    await user.keyboard("[Space]");
 
     expect(pushMock).toHaveBeenCalledWith("/scoring_leaders/Liverpool_FC");
   });

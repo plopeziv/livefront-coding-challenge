@@ -1,23 +1,15 @@
 import { screen, render, waitFor } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
-import mockData from "../../public/scratch/season_standings.json";
+import mockData from "./scratch_files/premier_league_fetch.json";
 
 import Home from "../app/page";
 
 jest.mock("next/navigation", () => {
   return {
     useRouter: () => ({
-      push: jest.fn(),
       replace: jest.fn(),
-      refresh: jest.fn(),
-      back: jest.fn(),
-      forward: jest.fn(),
-      prefetch: jest.fn(),
     }),
     usePathname: () => "/",
-    useSearchParams: () => ({
-      get: jest.fn(),
-    }),
   };
 });
 

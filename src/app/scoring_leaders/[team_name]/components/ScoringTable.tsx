@@ -54,8 +54,10 @@ export default function ScoringTable(props) {
     },
   ]);
 
-  const emptyRows = 12 - rowData.length;
-
+  let emptyRows = 12;
+  if (rowData?.length) {
+    emptyRows = 12 - rowData.length;
+  }
   const scoringTable = useReactTable({
     data: rowData,
     columns: tableHeaders,
