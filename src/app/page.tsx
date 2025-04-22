@@ -6,19 +6,6 @@ import StandingsTable from "./components/StandingsTable";
 export default function Home() {
   const [rowData, setRowData] = useState([]);
 
-  const colNames = [
-    { field: "Position" },
-    { field: "Name" },
-    { field: "Played Games" },
-    { field: "Won" },
-    { field: "Draw" },
-    { field: "Lost" },
-    { field: "Goals For" },
-    { field: "Goals Against" },
-    { field: "+ -" },
-    { field: "Points" },
-  ];
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,7 +31,7 @@ export default function Home() {
       <h1 className='text-5xl mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]'>
         Premier League Table
       </h1>
-      <StandingsTable headers={colNames} rowData={rowData} />
+      <StandingsTable rowData={rowData} />
     </div>
   );
 }

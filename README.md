@@ -10,7 +10,7 @@ Accessibility was prioritized from the development stage by integrating jsx-a11y
 
 ## Installation
 
-To set up the project locally, follow these steps:
+This project is designed to work with Node.js version 20. Please use your preferred Node version manager to ensure you're using Node 20 before proceeding. To set up the project locally, follow these steps:
 
 1. **Clone the Repository**
 

@@ -11,16 +11,6 @@ export default function ScoringLeaders() {
 
   const router = useRouter();
 
-  const colNames = [
-    { field: "Name" },
-    { field: "Date of Birth" },
-    { field: "Nationality" },
-    { field: "Position" },
-    { field: "Goals" },
-    { field: "Assists" },
-    { field: "Matches" },
-  ];
-
   const deslugify = (slug: string | string[]): string => {
     let singleSlug;
 
@@ -81,7 +71,7 @@ export default function ScoringLeaders() {
       <h1>{desluggedTeam}</h1>
       <h2 className='mb-5'>In Top 100</h2>
       <div className='w-[1075px] flex justify-center'>
-        <ScoringTable headers={colNames} rowData={rowData} />
+        <ScoringTable rowData={rowData} />
       </div>
       <div className='mt-4'>
         <button

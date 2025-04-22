@@ -1,0 +1,62 @@
+[
+  {
+    "position": 1,
+    "name": "Liverpool FC",
+    "playedGames": 32,
+    "won": 23,
+    "draw": 7,
+    "lost": 2,
+    "goalsFor": 74,
+    "goalsAgainst": 31,
+    "goalDifference": 43,
+    "points": 76,
+    "form": null,
+    "team": {
+      "id": 64,
+      "name": "Liverpool FC",
+      "shortName": "Liverpool",
+      "tla": "LIV",
+      "crest": "https://crests.football-data.org/64.png"
+    }
+  },
+  {
+    "position": 2,
+    "name": "Manchester City FC",
+    "playedGames": 32,
+    "won": 22,
+    "draw": 6,
+    "lost": 4,
+    "goalsFor": 78,
+    "goalsAgainst": 35,
+    "goalDifference": 43,
+    "points": 72,
+    "form": null,
+    "team": {
+      "id": 65,
+      "name": "Manchester City FC",
+      "shortName": "Man City",
+      "tla": "MCI",
+      "crest": "https://crests.football-data.org/65.png"
+    }
+  },
+  {
+    "position": 3,
+    "name": "Arsenal FC",
+    "playedGames": 32,
+    "won": 21,
+    "draw": 7,
+    "lost": 4,
+    "goalsFor": 70,
+    "goalsAgainst": 33,
+    "goalDifference": 37,
+    "points": 70,
+    "form": null,
+    "team": {
+      "id": 57,
+      "name": "Arsenal FC",
+      "shortName": "Arsenal",
+      "tla": "ARS",
+      "crest": "https://crests.football-data.org/57.png"
+    }
+  }
+]

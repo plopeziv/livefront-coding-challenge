@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Mohamed Salah",
+    "dateOfBirth": "1992-06-15",
+    "nationality": "Egypt",
+    "position": "Right Winger",
+    "goals": 27,
+    "assists": 17,
+    "matches": 33
+  },
+  {
+    "name": "Luis Díaz",
+    "dateOfBirth": "1997-01-13",
+    "nationality": "Colombia",
+    "position": "Left Winger",
+    "goals": 11,
+    "assists": 6,
+    "matches": 33
+  },
+  {
+    "name": "Cody Gakpo",
+    "dateOfBirth": "1999-05-07",
+    "nationality": "Netherlands",
+    "position": "Left Winger",
+    "goals": 8,
+    "assists": 4,
+    "matches": 30
+  }
+]
