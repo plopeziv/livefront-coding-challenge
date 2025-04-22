@@ -2,7 +2,7 @@ import { axe, toHaveNoViolations } from "jest-axe";
 import ScoringLeaders from "../app/scoring_leaders/[team_name]/page";
 import { screen, render, waitFor, fireEvent } from "@testing-library/react";
 
-import mockData from "./scratch_files/scoring_summary_fetch.json";
+import mockData from "./scratch_files/complete_scoring_summary_fetch.json";
 import userEvent from "@testing-library/user-event";
 
 const pushMock = jest.fn();

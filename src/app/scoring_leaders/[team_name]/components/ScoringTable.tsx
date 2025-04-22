@@ -69,22 +69,22 @@ export default function ScoringTable(props) {
   });
 
   return (
-    <table className='text-center text-base w-[800px]'>
-      <caption id='scoring-table-caption' className='sr-only'>
+    <table className="text-center text-base w-[800px]">
+      <caption id="scoring-table-caption" className="sr-only">
         Scoring table displaying player information, including name, date of
         birth, nationality, position, goals, assists, and matches played.
       </caption>
 
-      <thead className='bg-[#2b2d42]'>
+      <thead className="bg-[#2b2d42]">
         {scoringTable.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
               <th
                 key={header.id}
-                role='columnheader'
-                scope='col'
+                role="columnheader"
+                scope="col"
                 tabIndex={0}
-                className='px-3 min-w-[90px] cursor-pointer'
+                className="px-3 min-w-[90px] cursor-pointer"
                 onClick={header.column.getToggleSortingHandler()}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
@@ -100,12 +100,12 @@ export default function ScoringTable(props) {
                 }
               >
                 {header.isPlaceholder ? null : (
-                  <div className='flex items-center justify-center gap-1'>
+                  <div className="flex items-center justify-center gap-1">
                     {flexRender(
                       header.column.columnDef.header,
                       header.getContext()
                     )}
-                    <span aria-hidden='true'>
+                    <span aria-hidden="true">
                       {{
                         asc: " ↑",
                         desc: " ↓",
@@ -118,12 +118,12 @@ export default function ScoringTable(props) {
           </tr>
         ))}
       </thead>
-      <tbody className='bg-[rgba(141,153,174,0.88)]'>
+      <tbody className="bg-[rgba(141,153,174,0.88)]">
         {scoringTable.getRowModel().rows.map((row, index) => (
           <tr
             key={row.id}
             tabIndex={0}
-            role='row'
+            role="row"
             className={`${
               index % 2 === 0
                 ? "bg-[rgba(141,153,174,0.88)]"
@@ -131,7 +131,7 @@ export default function ScoringTable(props) {
             } hover:bg-[rgba(180,200,220,0.88)] h-[30px] cursor-default`}
           >
             {row.getVisibleCells().map((cell) => (
-              <td key={cell.id} className='px-2'>
+              <td key={cell.id} className="px-2">
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </td>
             ))}
@@ -147,7 +147,7 @@ export default function ScoringTable(props) {
                 : "bg-[rgba(224, 232, 235, 0.88)]"
             } hover:bg-[rgba(180,200,220,0.88)]`}
           >
-            <td colSpan={7} className='h-[30px]'></td>
+            <td colSpan={7} className="h-[30px]"></td>
           </tr>
         ))}
       </tbody>
