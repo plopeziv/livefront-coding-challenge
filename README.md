@@ -15,7 +15,7 @@ This project is designed to work with Node.js version 21. Please use your prefer
 1. **Clone the Repository**
 
    ```
-   git clone git@github.com:plopez9/nextjs-practice-website.git
+   git clone https://github.com/plopeziv/livefront-coding-challenge.git
    ```
 
 2. **Install Dependencies**
@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Run the project
 
-"This project is intended to showcase skills, so npm start and build have not been aliased. Please use npm run dev to start the development server."
+> **Note:** This project is intended to showcase skills, so npm start and build have not been aliased. Please use npm run dev to start the development server.
 
 ```sh
 npm run dev
@@ -85,7 +85,7 @@ This project prioritizes accessibility from the development stage by integrating
 
 This repository uses GitHub Actions to automate the CI/CD pipeline. The pipeline runs only on push events to the main branch and is not triggered for other branches.
 
-Workflow Overview
+#### Workflow Overview
 
 1. Checks out Repo
 2. Sets up Node.js (version 21.7) and caches dependencies
@@ -94,7 +94,7 @@ Workflow Overview
 5. Checks Linting
 6. Runs unit-tests
 
-Passing Criteria
+#### Passing Criteria
 
 - The pipeline must pass both linting and tests for the workflow to succeed.
 - If any step fails, the workflow stops, and changes will not be merged into main.
