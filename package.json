@@ -14,7 +14,8 @@
     "http-proxy": "^1.18.1",
     "next": "15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-spinners": "^0.17.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
