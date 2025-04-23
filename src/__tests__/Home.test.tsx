@@ -29,7 +29,13 @@ afterEach(() => {
 
 expect.extend(toHaveNoViolations);
 describe("<Home />", () => {
-  test("It should render a table", async () => {
+  test("It should render a loading spinner when loading", () => {
+    render(<Home />);
+
+    expect(screen.getByTestId("loading-spinner")).toBeInTheDocument();
+  });
+
+  test("It should render a table when loaded", async () => {
     render(<Home />);
 
     const renderedTable = await screen.findAllByRole("table");

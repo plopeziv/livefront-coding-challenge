@@ -47,7 +47,13 @@ describe("<ScoringLeaders />", () => {
     });
   });
 
-  test("It should render a table", async () => {
+  test("It should render a loading spinner when loading", () => {
+    render(<ScoringLeaders />);
+
+    expect(screen.getByTestId("loading-spinner")).toBeInTheDocument();
+  });
+
+  test("It should render a table when loaded", async () => {
     render(<ScoringLeaders />);
 
     const renderedTable = await screen.findAllByRole("table");
